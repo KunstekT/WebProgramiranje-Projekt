@@ -41,6 +41,28 @@
                     |                                box(4/4)|
 
     -->
+
+    <style>
+      #div1 {
+        width: 350px;
+        height: 70px;
+        padding: 10px;
+        border: 1px solid #aaaaaa;
+      }
+      </style>
+      
+      <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
+      <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
+
+      <script>
+        Dropzone.autoDiscover = false;
+      </script>
+
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
+
+      <script type=text/javascript> $(function() { $("#mybutton").click(function (event) { $.getJSON('/SomeFunction', { },
+      function(data) { }); return false; }); }); </script> 
+
 </head>
 <body>
     <div class="container-fluid p-5 bg-primary text-white text-center">
@@ -84,5 +106,33 @@
             </div>
         </div>
     </div>
+<script>
+function PrintDebug() {
+  data = document.getElementById("MessageToEncode").value; 
+  console.log(data);
+}
+
+</script>
+<div style="border:2px dashed">
+    <form action="/file-upload"
+    class="dropzone"
+    id="my-awesome-dropzone">
+    <input type="file" name="file"/>
+    </form>
+    <p>Write your message below:</p>
+    <p>
+      <textarea id="MessageToEncode" name="MessageToEncode"></textarea>
+    </p>
+    <p>
+      <input type="button" name="Button" value="Encode message" onclick="PrintDebug()" />
+    </p>
+</div>
+
+
+<button type="button" onclick="window.location.href='{{ url_for(\'encode\') }}';">Forward</button>
+       
+<input type = "button" id = "mybutton" value = "Click Here" />
+  
+
 </body>
 </html>
