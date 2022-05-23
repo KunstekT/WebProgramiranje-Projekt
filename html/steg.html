@@ -52,45 +52,56 @@
     -->
 </head>
 <body>
-  <div class="topnav" id="myTopnav">
-    <a href="#home" class="active">Home</a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
+	<div class="topnav" id="myTopnav">
+		<a href="../index.html" class="active">Home</a>
+		<a href="login.php">Login</a>
+		<a href="#news">News</a>
+		<a href="#contact">Contact</a>
+		<a href="#about">About</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+		  <i class="fa fa-bars"></i>
+		</a>
+	</div>
       
-  <!-- <div class="container">
+<div class="container">
     <div class="row">
-      <div class="col1 col-xs-5" >
-        <img src="../images/1.jpeg" alt="Code #1">
-          <div class="row">
-            <div class="col1row2 col-xs-12">
-            <h3>Want to know more?</h3>
-            <p>Check out more about steganography here.</p>
-            <p>More about us here.</p>
-            <p>And more about your rights here.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col2 col-xs-2">
-        <img class="titleImg" src="../images/black_title.png" alt="Title">
-      </div>
-      <div class="col3 col-xs-5">
-        <h3>Steganography</h3>
-        <p>Steganography is the practice of concealing a message within another message or a physical object. In computing/electronic contexts, a computer file, message, image, or video is concealed within another file, message, image, or video..</p>
-        <button id="start" class="btnstart" onclick="OnStartButtonPressed()">Start</button>
-        <div class="row">
-            <div class="col3row2 col-xs-12">
-              <img src="../images/2.jpeg" alt="Code #2">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
+		<div class="col-xs-1" ></div>
+		<div class="col1 col-xs-2" >
+		<h2>Image:</h2>
+		<input id="file" type="file"/><br/>
+		<p></p>
+		<h2>Text:<span id="capacity"></span></h2>
+		<textarea id="text">Hello World!</textarea>
+		<div class="btns">
+			<span id="hide" class="btnshowhide">Hide</span>
+			<span id="read" class="btnshowhide">Read</span>
+		</div>	
+	</div>
+	<div class="col-xs-1" ></div>
+	<div class="col2 col-xs-3">
+		<div id="original" class="half">
+			<h2>Plain Image:   </h2>
+			<img id="img" src="../images/default/default.jpg"/>
+		</div>
+	</div>
+	<div class="col-xs-1" ></div>
+	<div class="col4 col-xs-3">
+		<div id="stego" class="half">
+			<h2>Encoded Image:</h2>
+			<img id="cover" src=""/>
+			<a id="download" class="btn" download="cover.png" rel="nofollow"><strong>D</strong></a>
+		</div>
+		<!--
+		<div id="messageArea" class="invisible">
+			<h2>Message:</h2>
+			<div id="message"></div>
+		</div>
+		-->
+		</div>
+	<div class="col1 col-xs-1" ></div>
+	</div>
+  </div>
+<!--
   <div id="main">
 	<h1>Steganography!</h1>
 
@@ -115,7 +126,6 @@
 			<h2>Encoded Image:</h2>
 			<img id="cover" src=""/>
 			<a id="download" class="btn small" download="cover.png" rel="nofollow"><strong>D</strong></a>
-			<!-- <div class="note">Click "D"-button or if it does not work perform right-click to download</div> -->
 		</div>
 		<div id="messageArea" class="invisible">
 			<h2>Message:</h2>
@@ -123,7 +133,11 @@
 		</div>
 	</div>
 	<div class="clear"></div>
-</div>
+</div>		
+-->
+
+<!-- <div class="note">Click "D"-button or if it does not work perform right-click to download</div> -->
+
 <script type="text/javascript" src="../build/steganography.js"></script>
 <script type="text/javascript">
 
@@ -212,17 +226,6 @@ window.onload = function(){
 	updateCapacity();
 };
 
-
 </script>
 </body>
 </html>
-
-	<head>
-
-		<style>
-
-		</style>
-	</head>
-
-
-

@@ -28,7 +28,7 @@ body, html {
 				padding:10px;
 				margin-right:10px;
 				border-right:3px solid #353a3f;
-				background-color:#E8E0FF;
+				/* background-color:#E8E0FF; */
 			}
 			.half {
 				position:relative;
@@ -36,6 +36,9 @@ body, html {
 				width:49%;
 			}
 			#original {
+				vertical-align:top;
+			}
+			#stego{
 				vertical-align:top;
 			}
 			#messageArea {
@@ -48,6 +51,9 @@ body, html {
 				margin-top:15px;
 				margin-bottom:10px;
 				padding: 0 40px;
+				width:228px;
+				height: 80px;
+				
 			}
 			.btnstart {
 				padding:10px 20px 10px 20px;
@@ -55,14 +61,31 @@ body, html {
 				-o-border-radius:15px;
 				-webkit-border-radius:15px;
 				border-radius:15px;
-				border:2px solid #5845ff;
+				border:2px solid #476930;
 				cursor:pointer;
-				color:#5845ff;
+				color:#476930;
 				background-color:white;
 				width:80px;
 				text-align:center;
 			}
 			.btnstart:hover {
+				color:white;
+				background-color:#476930;
+			}
+			.btnshowhide {
+				padding:10px 10px 10px 10px;
+				-moz-border-radius:15px;
+				-o-border-radius:15px;
+				-webkit-border-radius:15px;
+				border-radius:15px;
+				border:2px solid #476930;
+				cursor:pointer;
+				color:#476930;
+				background-color:white;
+				width:80px;
+				text-align:center;
+			}
+			.btnshowhide:hover {
 				color:white;
 				background-color:#5845ff;
 			}
@@ -120,4 +143,5 @@ body, html {
 			}
 			h2{
 				margin-top:0;
+				color:#717171;
 			}

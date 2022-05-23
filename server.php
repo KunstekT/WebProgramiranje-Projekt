@@ -13,9 +13,30 @@ $db = mysqli_connect('localhost', 'root', '', 'registration');
 if (isset($_POST['reg_user'])) {
   // receive all input values from the form
   $username = mysqli_real_escape_string($db, $_POST['username']);
+  if (!preg_match('/^[a-zA-Z0-9]{4,}$/',$username)) {
+    array_push($errors, "Username can contain only letters and numbers");
+  }
+
   $email = mysqli_real_escape_string($db, $_POST['email']);
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    array_push($errors, "Invalid email format");
+  }
+  
   $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
   $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
+
+    // Validate password strength
+  $uppercase = preg_match('@[A-Z]@', $password_1);
+  $lowercase = preg_match('@[a-z]@', $password_1);
+  $number    = preg_match('@[0-9]@', $password_1);
+  $specialChars = preg_match('@[^\w]@', $password_1);
+
+  if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password_1) < 8) {
+    array_push($errors, "Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.");
+
+  }else{
+      echo 'Strong password.';
+  }
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
@@ -23,7 +44,7 @@ if (isset($_POST['reg_user'])) {
   if (empty($email)) { array_push($errors, "Email is required"); }
   if (empty($password_1)) { array_push($errors, "Password is required"); }
   if ($password_1 != $password_2) {
-	array_push($errors, "The two passwords do not match");
+	  array_push($errors, "The two passwords do not match");
   }
 
   // first check the database to make sure 
