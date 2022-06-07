@@ -13,19 +13,25 @@
 </head>
 <body>
   <div class="topnav" id="myTopnav">
-    <a href="home.php" class="active">Home</a>
+    <a href="home.php" >Home</a>
 	<?php
 		if(!isset($_SESSION['username']))
 		{
-			echo '<a href="login.php">Log in</a>';
+			echo '<a href="login.php" class="active">Log in</a>';
 		}
 		else
 		{
-			echo '<a href="login.php?logout=1">Log out</a>';
+			echo '<a href="login.php?logout=1" class="active">Log out</a>';
 		}
 	?>
     <a href="contact.php">Contact</a>
     <a href="about.php">About</a>
+	<?php
+    if(isset($_SESSION['username']))
+    {
+      echo '<a href="steg.php">Steganography</a>';
+    }
+    ?>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
       <i class="fa fa-bars"></i>
     </a>

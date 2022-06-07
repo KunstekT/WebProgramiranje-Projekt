@@ -38,13 +38,13 @@ body, html {
 			#original {
 				vertical-align:top;
 			}
-			#stego{
-				vertical-align:top;
-			}
 			#messageArea {
 				width:100%;
 			}
-			#img, #cover {
+			#img{
+				width:290px;
+			}
+			#cover {
 				width:290px;
 			}
 			.btns {
@@ -65,22 +65,24 @@ body, html {
 				cursor:pointer;
 				color:#476930;
 				background-color:white;
-				width:80px;
+				width:100%;
 				text-align:center;
+
+				/* padding: 10px; font-size: 15px; color: white; background: #476930; border: none; border-radius: 5px; */
 			}
 			.btnstart:hover {
 				color:white;
 				background-color:#476930;
 			}
-			.btnshowhide {
+			span.btnshowhide {
 				padding:10px 10px 10px 10px;
 				-moz-border-radius:15px;
-				-o-border-radius:15px;
+				-o-border-radius:15px;				
+				color:#476930;
 				-webkit-border-radius:15px;
 				border-radius:15px;
 				border:2px solid #476930;
 				cursor:pointer;
-				color:#476930;
 				background-color:white;
 				width:80px;
 				text-align:center;
@@ -89,24 +91,14 @@ body, html {
 				color:white;
 				background-color:#5845ff;
 			}
-			#download {
-				position:absolute;
-				top:47px;
-				left:4px;
-				padding:10px 5px 5px 3px;
-				width:10px;
+			#download {	
+
 				border-top:1px solid black;
 				-moz-border-radius:0 0 15px 15px;
 				-o-border-radius:0 0 15px 15px;
 				-webkit-border-radius:0 0 15px 15px;
 				border-radius:0 0 15px 15px;
 				text-decoration:none;
-			}
-			#download:hover {
-				width:70px;
-			}
-			#download:hover:after {
-				content:"ownload";
 			}
 			#description {
 				line-height:25px;
@@ -145,3 +137,28 @@ body, html {
 				margin-top:0;
 				color:#717171;
 			}
+			input.file{
+				background-color: aqua;
+			}
+
+			#aboutcol{
+				background-color:white; 
+				border-style: double; 
+				border-color: green;
+				border-width: 10px;
+				margin-bottom: 5px;
+				padding: 25px;
+			}
+
+			/* .decodedimage{
+				visibility:hidden;
+			} */
+			.btndownload {
+				padding: 10px;
+				font-size: 12px;
+				color: white;
+				background: #476930;
+				border: none;
+				border-radius: 5px;
+				margin-left: 10px
+			  }

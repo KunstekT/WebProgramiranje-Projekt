@@ -1,19 +1,19 @@
+<?php include('server.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/navigationBar.css" type="text/css">
+    <link rel="stylesheet" href="css/navigationBar.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="scripts/script.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- icon lib-->
-    <script src="../scripts/navigationBar.js"></script>
-    <link rel="stylesheet" src="../css/main.css">
+    <link rel="stylesheet" href="css/main.css"  type="text/css">
     <style>
 			
     </style>
-    <title>Steganography</title>
 
     <!--Web stranica sadrži logiranje korisnika te kada je korisnik prijavljen može 
     koristiti mogućnost uploadanja slike u koju se sakriva string(niz) koji preda korisnik. 
@@ -52,93 +52,86 @@
     -->
 </head>
 <body>
-	<div class="topnav" id="myTopnav">
-		<a href="../index.html" class="active">Home</a>
-		<a href="login.php">Login</a>
+	<!-- <div class="topnav" id="myTopnav">
+		<a href="index.php" class="active">Home</a>
+		<a href="login.php">Log in</a>
 		<a href="#news">News</a>
 		<a href="#contact">Contact</a>
 		<a href="#about">About</a>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 		  <i class="fa fa-bars"></i>
 		</a>
-	</div>
+	</div> -->
+	<div class="topnav" id="myTopnav">
+    <a href="home.php">Home</a>
+	<?php
+		if(!isset($_SESSION['username']))
+		{
+			echo '<a href="login.php">Log in</a>';
+		}
+		else
+		{
+			echo '<a href="login.php?logout=1">Log out</a>';
+		}
+	?>
+    <a href="contact.php">Contact</a>
+    <a href="about.php">About</a>
+	<?php
+	if(isset($_SESSION['username']))
+	{
+		echo '<a href="steg.php">Steganography</a>';
+	}
+	?>
+    <!-- <a href="steg.php" class="active">Steganography</a> -->
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+</div>
       
 <div class="container">
     <div class="row">
-		<div class="col-xs-1" ></div>
-		<div class="col1 col-xs-2" >
+		<div class="col-md-1" ></div>
+		<div class="col1 col-md-2" >
 		<h2>Image:</h2>
 		<input id="file" type="file"/><br/>
 		<p></p>
 		<h2>Text:<span id="capacity"></span></h2>
 		<textarea id="text">Hello World!</textarea>
 		<div class="btns">
-			<span id="hide" class="btnshowhide">Hide</span>
-			<span id="read" class="btnshowhide">Read</span>
+			<span id="hide" class="btnshowhide">Encode</span>
+			<span id="read" class="btnshowhide">Decode</span>
 		</div>	
 	</div>
-	<div class="col-xs-1" ></div>
-	<div class="col2 col-xs-3">
+	<div class="col-md-1" ></div>
+	<div class="col2 col-md-3">
 		<div id="original" class="half">
-			<h2>Plain Image:   </h2>
-			<img id="img" src="../images/default/default.jpg"/>
+			<h2>Original Image:   </h2>
+			<img id="img" src="images/default.jpg"/>
 		</div>
 	</div>
-	<div class="col-xs-1" ></div>
-	<div class="col4 col-xs-3">
-		<div id="stego" class="half">
-			<h2>Encoded Image:</h2>
-			<img id="cover" src=""/>
-			<a id="download" class="btn" download="cover.png" rel="nofollow"><strong>D</strong></a>
+	<div class="col-md-1" ></div>
+	<div class="col4 col-md-3">
+		<div id="decodedimage" style="visibility:hidden;">
+			<div id="stego" class="half">
+				<h2>Encoded Image:</h2>
+				<img id="cover" src=""/>
+				<a id="download" class="btndownload" download="cover.png" rel="nofollow"><strong>Download</strong></a>
+			</div>
 		</div>
-		<!--
+
 		<div id="messageArea" class="invisible">
 			<h2>Message:</h2>
 			<div id="message"></div>
 		</div>
-		-->
+		
 		</div>
-	<div class="col1 col-xs-1" ></div>
+	<div class="col1 col-md-1" ></div>
 	</div>
   </div>
-<!--
-  <div id="main">
-	<h1>Steganography!</h1>
-
-	<div id="left">
-		<h2>Image:</h2>
-		<input id="file" type="file"/><br/>
-		<p></p>
-		<h2>Text:<span id="capacity"></span></h2>
-		<textarea id="text">Hello World!</textarea>
-		<div class="btns">
-			<span id="hide" class="btn">Hide</span>
-			<span id="read" class="btn">Read</span>
-		</div>
-	</div>
-	
-	<div id="right">
-		<div id="original" class="half">
-			<h2>Plain Image:</h2>
-			<img id="img" src="default.jpg"/>
-		</div>
-		<div id="stego" class="half">
-			<h2>Encoded Image:</h2>
-			<img id="cover" src=""/>
-			<a id="download" class="btn small" download="cover.png" rel="nofollow"><strong>D</strong></a>
-		</div>
-		<div id="messageArea" class="invisible">
-			<h2>Message:</h2>
-			<div id="message"></div>
-		</div>
-	</div>
-	<div class="clear"></div>
-</div>		
--->
 
 <!-- <div class="note">Click "D"-button or if it does not work perform right-click to download</div> -->
 
-<script type="text/javascript" src="../build/steganography.js"></script>
+<script type="text/javascript" src="build/steganography.js"></script>
 <script type="text/javascript">
 
 function handleFileSelect(evt) {
@@ -176,6 +169,8 @@ function handleFileSelect(evt) {
 
 		// Read in the image file as a data URL.
 		reader.readAsDataURL(f);
+		decodedimage = document.getElementById("decodedimage");
+		decodedimage.style="visibility: visible";
 	}
 }
 
@@ -192,6 +187,9 @@ function hide() {
 		message.innerHTML="";
 		message.parentNode.className="invisible";
 		download.href=cover.src.replace("image/png", "image/octet-stream");
+		
+		decodedimage = document.getElementById("decodedimage");
+		decodedimage.style="visibility: visible";
 	}
 }
 
@@ -222,7 +220,7 @@ window.onload = function(){
 	document.getElementById('hide').addEventListener('click', hide, false);
 	document.getElementById('read').addEventListener('click', read, false);
 	document.getElementById('text').addEventListener('keyup', updateCapacity, false);
-	hide();
+	//hide();
 	updateCapacity();
 };
 

@@ -4,7 +4,7 @@
 }
 
 img {
-    width: 100%;
+    width: 60%;
     padding: 10px;
 }
 
@@ -14,23 +14,25 @@ img {
     padding: 0px;
 }
 
-.col1row2{
-    background: white;
-    color: black;
+.col1row2, .uprightcol{
+    background-color:white; 
+    border-style: double; 
+    border-color: green;
+    border-width: 10px;
+    margin-bottom: 5px;
+    padding: 25px;
 }
 
-.col3{
-    background: white;
-    color: black;
-}
-.col4{
-    background: #bebebe;
-    color: black;
-}
-
-.col3row2{
-    background: #bebebe;
+.maintitle{
+    font-size: 32px;
+    text-align: center;
+    color:green;
+    text-shadow: 3px 3px white ;
+    
 }
 
+.col1, .col3row2{
+    align-self: center;
+}
 
 

@@ -39,6 +39,12 @@
 	?>
     <a href="contact.php">Contact</a>
     <a href="about.php">About</a>
+	<?php
+    if(isset($_SESSION['username']))
+    {
+      echo '<a href="steg.php">Steganography</a>';
+    }
+    ?>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
       <i class="fa fa-bars"></i>
     </a>
@@ -62,7 +68,7 @@
     <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>
     	<p>Nice to see you, <strong><?php echo $_SESSION['username']; ?></strong>!</p>
-		<p>Would you like to try our <a href="html/steg.html">steganography</a> now?</p>
+		<p>Would you like to try our <a href="steg.php">steganography</a> now?</p>
     <?php endif ?>
 </div>
 		

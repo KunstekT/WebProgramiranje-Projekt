@@ -7,6 +7,4 @@ function myFunction() {
     }
 }
 
-function OnStartButtonPressed() {
-  location.href = "steg.php";
-}
+
